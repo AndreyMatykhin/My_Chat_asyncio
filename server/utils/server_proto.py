@@ -69,7 +69,7 @@ class ChatServerProtocol(Protocol, ConvertMixin, DbInterfaceMixin):
                             self.users[_data['user']['account_name']] = self.connections[self.transport]
                             self.set_user_online(_data['user']['account_name'])
                         resp_msg = self.jim.probe(self.user)
-                        self.users[_data['user']['accoutn_name']]['transport'].write(self._dict_to_bytes(resp_msg))
+                        self.users[_data['user']['account_name']]['transport'].write(self._dict_to_bytes(resp_msg))
                     else:
                         resp_msg = self.jim.response(code=402, error='wrong login/password')
                         self.transport.write(self._dict_to_bytes(resp_msg))

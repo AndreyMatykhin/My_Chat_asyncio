@@ -7,6 +7,7 @@ from server.utils.server_proto import ChatServerProtocol
 
 class ConsoleServerApp:
     """Console server"""
+
     def __init__(self, parsed_args, db_path):
         self.args = parsed_args
         self.db_path = db_path
@@ -36,11 +37,16 @@ def parse_and_run():
         parser = ArgumentParser(description='Server settings')
         parser.add_argument('--addr', default='127.0.0.1', type=str)
         parser.add_argument('--port', default=PORT, type=int)
-        parser.add_argument('--nogui', default='store_true')
+        parser.add_argument('--nogui', action='store_true')
         return vars(parser.parse_args())
 
     args = parse_args()
     if args['nogui']:
         # start consoles server
+        print(DB_PATH)
         a = ConsoleServerApp(args, DB_PATH)
         a.main()
+
+
+if __name__ == '__main__':
+    parse_and_run()
