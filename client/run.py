@@ -1,7 +1,12 @@
+import sys
 from argparse import ArgumentParser
-from asyncio import get_event_loop
+from asyncio import get_event_loop, set_event_loop
+
+from PyQt5.QtWidgets import QApplication, QDialog
+from quamash import QEventLoop
 
 from client.client_config import PORT, DB_PATH
+from client.ui.windows import LoginWindow
 from client.utils.client_proto import ClientAuth, ChatClientProtocol
 
 
@@ -54,6 +59,25 @@ class ConsoleClientApp:
             loop.close()
 
 
+class GuiClientApp:
+    """GUI Client"""
+
+    def __init__(self, parsed_args, db_path):
+        self.args = parsed_args
+        self.db_path = db_path
+        self.ins = None
+
+    def main(self):
+        # client event loop
+        app = QApplication(sys.argv)
+        loop = QEventLoop(app)
+        set_event_loop(loop)
+        login_wnd=LoginWindow()
+        if login_wnd.exec_() == QDialog.Accepted:
+            pass
+
+
+
 def parse_and_run():
     def parse_args():
         parser = ArgumentParser(description='Client settings')
@@ -67,6 +91,9 @@ def parse_and_run():
     args = parse_args()
     if args['nogui']:
         a = ConsoleClientApp(args, DB_PATH)
+        a.main()
+    else:
+        a = GuiClientApp(args,DB_PATH)
         a.main()
 
 
