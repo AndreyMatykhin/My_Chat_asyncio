@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import QApplication, QDialog
 from quamash import QEventLoop
 
 from client.client_config import PORT, DB_PATH
-from client.ui.windows import LoginWindow
+from client.ui.windows import LoginWindow, ContactsWindow
 from client.utils.client_proto import ClientAuth, ChatClientProtocol
 
 
@@ -72,10 +72,30 @@ class GuiClientApp:
         app = QApplication(sys.argv)
         loop = QEventLoop(app)
         set_event_loop(loop)
-        login_wnd=LoginWindow()
+        auth_ = ClientAuth(db_path=self.db_path)
+        login_wnd = LoginWindow(auth_instance=auth_)
         if login_wnd.exec_() == QDialog.Accepted:
-            pass
-
+            client_ = ChatClientProtocol(db_path=self.db_path, loop=loop, username=login_wnd.username,
+                                         password=login_wnd.password)
+            wnd = ContactsWindow(client_instance=client_, user_name=login_wnd.username)
+            client_.gui_instance = wnd
+            with loop:
+                del auth_
+                del login_wnd
+                try:
+                    coro = loop.create_connection(lambda: client_, self.args['addr'], self.args['port'])
+                    server = loop.run_until_complete(coro)
+                except ConnectionRefusedError:
+                    print('Error. Wrong server.')
+                    exit(1)
+                wnd.show()
+                client_.get_from_gui()
+                try:
+                    loop.run_forever()
+                except KeyboardInterrupt:
+                    pass
+                except Exception:
+                    pass
 
 
 def parse_and_run():
@@ -93,7 +113,7 @@ def parse_and_run():
         a = ConsoleClientApp(args, DB_PATH)
         a.main()
     else:
-        a = GuiClientApp(args,DB_PATH)
+        a = GuiClientApp(args, DB_PATH)
         a.main()
 
 

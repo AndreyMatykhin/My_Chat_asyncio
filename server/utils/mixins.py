@@ -31,7 +31,7 @@ class DbInterfaceMixin:
         return self._cm.get_contacts(client_username)
 
     def get_all_clients(self):
-        return self.get_all_clients()
+        return self._cm.get_all_clients()
 
     def get_client_history(self, client_username):
         return self._cm.get_client_history(client_username)
@@ -43,7 +43,10 @@ class DbInterfaceMixin:
         return self._cm.set_user_offline(client_username)
 
     def get_user_status(self, client_username):
-        return self.get_user_status(client_username)
+        return self._cm.get_user_status(client_username)
+
+    def add_client_message(self, client_username, contact_username, text_msg):
+        return self._cm.add_client_message(client_username, contact_username, text_msg)
 
 
 class ConvertMixin:

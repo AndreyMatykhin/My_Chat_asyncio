@@ -54,7 +54,7 @@ class GuiServerApp:
         loop = QEventLoop(app)
         set_event_loop(loop)  # NEW must set the event loop
         # server_instance=self.ins, parsed_args=self.args
-        wnd = ServerMonitorWindow()
+        wnd = ServerMonitorWindow(server_instance=self.ins, parsed_args=self.args)
         wnd.show()
         with loop:
             coro = loop.create_server(lambda: self.ins, self.args['addr'], self.args['port'])
