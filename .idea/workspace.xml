@@ -42,33 +42,34 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.chat.executor&quot;: &quot;Run&quot;,
-    &quot;Python.client 1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.client 2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.contacts.executor&quot;: &quot;Run&quot;,
-    &quot;Python.gui.executor&quot;: &quot;Run&quot;,
-    &quot;Python.login.executor&quot;: &quot;Run&quot;,
-    &quot;Python.run gui.executor&quot;: &quot;Run&quot;,
-    &quot;Python.run nogui.executor&quot;: &quot;Run&quot;,
-    &quot;Python.run.executor&quot;: &quot;Run&quot;,
-    &quot;Python.server.executor&quot;: &quot;Run&quot;,
-    &quot;Python.windows.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/andrey/My_stady/DZ/My_Chat_asyncio/client&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.chat.executor": "Run",
+    "Python.client 1.executor": "Run",
+    "Python.client 2.executor": "Run",
+    "Python.contacts.executor": "Run",
+    "Python.gui.executor": "Run",
+    "Python.launcher.executor": "Run",
+    "Python.login.executor": "Run",
+    "Python.run gui.executor": "Run",
+    "Python.run nogui.executor": "Run",
+    "Python.run.executor": "Run",
+    "Python.server.executor": "Run",
+    "Python.windows.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/andrey/My_stady/DZ/My_Chat_asyncio/launcher.py",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/client/ui" />
       <recent name="$PROJECT_DIR$/server/ui" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.client 2">
+  <component name="RunManager" selected="Python.launcher">
     <configuration name="client 1" type="PythonConfigurationType" factoryName="Python">
       <module name="My_Chat_asyncio" />
       <option name="ENV_FILES" value="" />
@@ -113,7 +114,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="launcher" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="My_Chat_asyncio" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -122,11 +123,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/client" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/client/run.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/launcher.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -161,11 +162,11 @@
       <item itemvalue="Python.server" />
       <item itemvalue="Python.client 1" />
       <item itemvalue="Python.client 2" />
-      <item itemvalue="Python.run" />
+      <item itemvalue="Python.launcher" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.run" />
+        <item itemvalue="Python.launcher" />
       </list>
     </recent_temporary>
   </component>
